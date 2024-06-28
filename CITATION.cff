@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "To cite this repository, use:"
+license: CC-BY-4.0
+title: "Data Underlying the Study on Willingness to Pay and Economic Feasibility for Waste Management in Cape Maclear, Malawi"
+date-released: "2024-06-28"
+type: software
+authors:
+  - family-names: Abgottspon
+    given-names: Elena
+    email: elenaa@student.ethz.ch
+    ordid: https://orcid.org/0009-0008-5461-846X
+  - family-names: Tilley
+    given-names: Elizabeth
+    email: tilleye@ethz.ch
+    orcid: https://orcid.org/0000-0002-2095-9724
+  - family-names: Tkaczuk
+    given-names: Jakub
+    email: jtkaczuk@ethz.ch
+    orcid: https://orcid.org/0000-0001-7997-9423
+contact:
+  - family-names: Tkaczuk
+    given-names: Jakub
+    email: jtkaczuk@ethz.ch
+    orcid: https://orcid.org/0000-0001-7997-9423
+version: 0.0.1
