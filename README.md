@@ -18,11 +18,13 @@
 <p align="middle"> 
 <img src="img/ETH_GHE_logo_negative.svg" width=600>
 <br><br>
-It compliments the openly-accessible master’s thesis, available on the<br \>  
+This repository compliments the openly-accessible master’s thesis, available on the<br \>  
 <a href="https://www.research-collection.ethz.ch/handle/20.500.11850/670969">ETH Research Collection</a>.
 </p>
 
 # Background
+
+To be filled.
 
 # License
 
