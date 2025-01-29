@@ -1,4 +1,4 @@
-Raw variable name,Renamed variable,Description
+raw_variable,renamed_variable,description
 p1,waste,"What type of waste is mostly generated through your lodge?"
 p1_7_text,waste_o,"What type of waste is mostly generated through your lodge? - Other"
 p2_1,swm_satisfaction,"How satisfied are you with the current waste management options in Cape Maclear?"
