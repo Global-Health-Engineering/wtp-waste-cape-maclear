@@ -1,0 +1,7 @@
+﻿scenario,1,2,13,14
+separation at source,no,yes,no,yes
+observations [n],251,251,213,213
+constant,1506.6,898.9,-697.1,-906.3
+constant robust standard error,182.4,215.9,1654.9,2008.1
+sigma,2534.8,2818.2,2050.5,2432.8
+sigma robust standard error,212.8,265.1,184.2,240.9

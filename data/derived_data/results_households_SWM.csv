@@ -1,0 +1,17 @@
+﻿scenario,11,12,13,14
+separation at source,no,yes,no,yes
+observations [n],234,234,213,213
+constant,-2376.7,-3288.3,-697.1,-906.3
+constant robust standard error,1051.3,1334.5,1654.9,2008.1
+sigma,2366.5,2785.2,2050.5,2432.8
+sigma robust standard error,203.7,269.3,184.2,240.9
+willing to pay a fee [1/0],2538.6,2806.4,1332.2,1001.1
+willing to pay a fee robust standard error,881,1111.7,862.3,1062
+willing to contribute time [1/0],2206.6,2896.6,1740.5,1963
+willing to contribute time robust standard error,765.4,993,769.6,961.3
+importance of SWM [0-40],27.3,15.8,42,23.7
+importance of SWM robust standard error,41.1,49.5,42.3,50.5
+importance of natural environment [0-40],173.2,126.6,172.4,134.6
+importance of natural environment robust standard error,53.2,62.8,58.1,68.2
+satisfaction with current SWM [1-5],236.1,231.9,-0.5,72.6
+satisfaction with current SWM robust standard error,142.4,172.1,160.3,192.8

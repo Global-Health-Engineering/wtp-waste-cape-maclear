@@ -1,0 +1,17 @@
+﻿scenario,9,10,13,14
+separation at source,no,yes,no,yes
+observations [n],249,249,213,213
+constant,2950.1,2083.6,-697.1,-906.3
+constant robust standard error,509.4,555.4,1654.9,2008.1
+sigma,2412.8,2693.5,2050.5,2432.8
+sigma robust standard error,202.4,253.2,184.2,240.9
+Muonda [1/0],-1895.9,-1756.9,-1321.3,-1329.8
+Muonda robust standard error,651.5,739.2,685.6,808
+Nkhono [1/0],-1833.5,-1622.5,-864.2,-766.2
+Nkhono robust standard error,624.5,691.1,649.9,748.1
+Katukumala [1/0],-1025,-474.8,-417.4,-230.6
+Katukumala robust standard error,635.2,703.4,655.9,763.3
+Kafukuta [1/0],-2555.6,-2055.7,-2634.1,-2005.8
+Kafukuta robust standard error,857.9,955.7,1060.2,1214.3
+Chembe [1/0],-1249.5,-1052.2,-174.8,-382.6
+Chembe robust standard error,653.9,724.4,705.7,818.4

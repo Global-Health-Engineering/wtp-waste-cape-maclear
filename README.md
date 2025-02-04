@@ -17,16 +17,17 @@
 
 <p align="middle"> 
 <img src="img/ETH_GHE_logo_negative.svg" width=600>
-<br><br>
-This repository compliments the openly-accessible master’s thesis, available on the<br \>  
-<a href="https://doi.org/10.3929/ethz-b-000670969">ETH Research Collection</a>.
 </p>
 
 # Background
 
-This repository compliments the study assessing the Willingness to Pay (WTP) for implementing Waste Management System (WMS) of four stakeholder groups (households, lodges, businesses, and tourists) in Cape Maclear, Malawi. The study itself explored opportunities for value creation to support the WMS. Recommendations for a sustainable business model were developed based on all costs and revenue streams of the system.
+This repository contains data related to research into sustainable solid waste management in Cape Maclear, Malawi. The study aimed to develop a waste management system that not only protects public health and the environment, but also addresses the funding challenges associated with such initiative.
 
-Raw data in this repository is separated into four categories, the same as the stakeholder groups, and is presented in the `.csv` and `.dta` formats. The analysis is performed in Stata; therefore, the Stata `.do` files are available in the `src` directory and allow to replicate data analysis and derive the data to draw conclusions, presented in the thesis.
+The data was collected during a two-month field stay in Cape Maclear in November and December 2023. The research used the tailored surveys to assess the willingness to pay (WTP) for improved waste collection and treatment among four key stakeholder groups - households, lodges, businesses, and tourists. By analyzing current practices and preferences, the study identified optimal payment modes and explored opportunities for value creation. The findings were used to develop recommendations for a sustainable business model that ensures operational independence while leveraging external resources for long-term infrastructure improvements.
+
+This dataset and accompanying documentation provide a basis for further analysis and decision-making in the field of community-based waste management systems.
+
+Both the raw and derived data in this repository are separated into four categories, the same as the stakeholder groups, and is presented in the `.csv` and `.dta` formats. The analysis is performed in Stata; therefore, the Stata `.do` files are available in the `src` directory and allow to replicate data analysis and derive the data to draw conclusions, presented in the thesis.
 
 Conclusions from the thesis and the data from this repository are briefly presented below.
 
@@ -36,4 +37,4 @@ Overall, a sustainable business model has been identified and the next step shou
 
 # License
 
-Both the thesis, published on the [ETH Research Collection](https://doi.org/10.3929/ethz-b-000670969) and the underlying data, published in this repository are licensed under [Creative Commons Attribution 4.0 International](https://github.com/Global-Health-Engineering/wtp-waste-cape-maclear/blob/main/LICENSE.md).
+The data, published in this repository, are licensed under [Creative Commons Attribution 4.0 International](https://github.com/Global-Health-Engineering/wtp-waste-cape-maclear/blob/main/LICENSE.md).

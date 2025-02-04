@@ -1,0 +1,17 @@
+﻿scenario,3,4,13,14
+separation at source,no,yes,no,yes
+observations [n],239,239,213,213
+constant,2122.7,1612.4,-697.1,-906.3
+constant robust standard error,571.1,652,1654.9,2008.1
+sigma,2390.6,2674.3,2050.5,2432.8
+sigma robust standard error,202.4,253.3,184.2,240.9
+male [1/0],431.7,90.2,209.9,220.7
+male robust standard error,542.1,602.9,596.2,686.5
+age [yr],-30.8,-28.4,-10.2,-18.5
+age robust standard error,12.5,14.3,13.4,16.2
+unemployed [1/0],-179.3,-398.4,-12.5,-122.7
+unemployment robust standard error,379.3,433,385.9,462.3
+head of HH [1/0],1059,2228.9,1279.7,2074
+head of HH robust standard error,774,947.4,757.4,947.2
+head of HH & lead in SWM [1/0],-167.9,-1321.6,-1256.4,-2030.2
+head of HH & lead in SWM robust standard error,772.8,932.1,773.1,963.2
