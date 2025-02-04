@@ -5,7 +5,7 @@
 **********************************************************************************************************************************************
 
 clear 
-use "../data/raw_data/Households_RawData.dta", clear
+use "../data/raw_data/raw_data_households.dta", clear
 
 *-----------------------------------------------------------------------------
 *label variables WTP
@@ -118,7 +118,6 @@ rename w1 frequency
 rename w1_4_text frequency_o
 rename w2 engagement
 
-
 *-----------------------------------------------------------------------------
 * demographics
 
@@ -166,7 +165,6 @@ rename d11_1_text buildings
 rename d12_1_text people 
 rename d13 income
 rename d14 household_id
-
 
 **********************************************************************************************************************************************
 
@@ -246,8 +244,6 @@ replace s_bid2 = 1500 if wtp35 == "No" | wtp35 == "Yes"
 replace s_bid2 = 6000 if wtp36 == "No" | wtp36 == "Yes"
 
 replace s_bid2 = . if wtp5 == "Prefer not to say" | wtp6 == "Prefer not to say" | wtp11 == "Prefer not to say" | wtp12 == "Prefer not to say" | wtp17 == "Prefer not to say" | wtp18 == "Prefer not to say" | wtp23 == "Prefer not to say" | wtp24 == "Prefer not to say" | wtp29 == "Prefer not to say" | wtp30 == "Prefer not to say" | wtp35 == "Prefer not to say" | wtp36 == "Prefer not to say"
-
-
 
 **********************************************************************************************************************************************
 *-----------------------------------------------------------------------------
@@ -368,15 +364,7 @@ replace response_s_bid2 = 0 if wtp35 == "No" | wtp36 == "No"
 replace response_s_bid2 = 1 if wtp35 == "Yes" | wtp36 == "Yes"
 replace response_s_bid2 = . if wtp35 == "Prefer not to say" | wtp36 == "Prefer not to say"
 
-
-
 **********************************************************************************************************************************************
 
-
-save "../data/derived_data/Households_DerivedData.dta", replace
-export delimited "../data/derived_data/Households_DerivedData.csv", replace
-
-
-
-
-
+save "../data/derived_data/derived_data_households.dta", replace
+export delimited "../data/derived_data/derived_data_households.csv", replace

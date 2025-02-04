@@ -5,8 +5,7 @@
 ************************************************************************************************************************************************
 
 clear
-use "../data/raw_data/Tourists_RawData.dta", clear
-
+use "../data/raw_data/raw_data_tourists.dta", clear
 
 *-----------------------------------------------------------------------------
 *label variables present SWM practices & SWM in Cape Maclear
@@ -30,7 +29,6 @@ rename a6 composting
 rename a7 disposal
 rename a8 issues
 rename a8_2_text issues_txt
-
 
 *-----------------------------------------------------------------------------
 *label variables WTP & Others 
@@ -57,7 +55,6 @@ rename b4 educ_prgrms
 rename b5 ecosupport
 rename b6 initiatives
 
-
 *-----------------------------------------------------------------------------
 *label variables demographics 
 
@@ -82,7 +79,6 @@ rename d4_4_text lodge
 rename d5_4_text days_cape
 rename d6_4_text days_malawi
 rename d7_4_text expenses
-
 
 *-----------------------------------------------------------------------------
 *label variables present SWM practices
@@ -163,7 +159,6 @@ replace nationality = "Belgium" if responseid == "R_2uI1HIY3SRYLqDR"
 replace nationality = "Belgium" if responseid == "R_1gjxotsvkrEJYUg"
 replace nationality = "Belgium" if responseid == "R_4EOxfUJUm2U53IR"
 
-
 *-----------------------------------------------------------------------------
 *Australia
 replace nationality = "Australia" if responseid == "R_3j7B50I6yQHVInK"
@@ -240,7 +235,6 @@ replace lodge = "Mgoza Lodge" if responseid == "R_21mFMtgRhB1hoCg"
 replace lodge = "Mgoza Lodge" if responseid == "R_xDBttqr15inAj5L"
 replace lodge = "Mgoza Lodge" if responseid == "R_4EOxfUJUm2U53IR"
 
-
 replace lodge = "Other" if responseid == "R_2uyBAfCApTMB2eE"
 replace lodge = "Other" if responseid == "R_15ToFPKopuYOId0"
 replace lodge = "Other" if responseid == "R_1pXoc2TXNSaozsV"
@@ -295,8 +289,5 @@ replace lodge = "Chembe Eagles Nest Resort" if responseid == "R_2q0i4MPaiXK1129"
 
 ************************************************************************************************************************************************
 
-
-save "../data/derived_data/Tourists_DerivedData.dta", replace
-export delimited "../data/derived_data/Tourists_DerivedData.csv", replace
-
-
+save "../data/derived_data/derived_data_tourists.dta", replace
+export delimited "../data/derived_data/derived_data_tourists.csv", replace

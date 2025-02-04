@@ -5,8 +5,7 @@
 ************************************************************************************************************************************************
 
 clear
-use "../data/derived_data/Tourists_DerivedData.dta", clear
-
+use "../data/derived_data/derived_data_tourists.dta", clear
 
 *-----------------------------------------------------------------------------
 *generate the daily spendings per tourist by dividing the expenses through the days stayed in Cape 
@@ -20,7 +19,6 @@ replace daily_spendings = expenses/days_cape
 *dummy for if tourists have made thoughts about the endlife of their waste
 generate awareness = 0
 replace awareness = 1 if thoughts_endlife == "Yes"
-
 
 *----------------------------------------------------------------------------- 
 *dummy for SWM satisfaction
@@ -37,7 +35,6 @@ replace satisfaction = 2 if swm_satisfaction == "Somewhat dissatisfied"
 replace satisfaction = 3 if swm_satisfaction == "Neither satisfied nor dissatisfied"
 replace satisfaction = 4 if swm_satisfaction == "Somewhat satisfied" 
 replace satisfaction = 5 if swm_satisfaction == "Extremely satisfied"
-
 
 *----------------------------------------------------------------------------- 
 *dummy for if they think there is any waste mgmt.
@@ -70,13 +67,11 @@ generate waste_dis = 0
 replace waste_dis =. if disposal == "Prefer not to say / don't know"
 replace waste_dis = 1 if disposal == "Yes"
 
-
 *----------------------------------------------------------------------------- 
 *dummy if they encountered waste related issues during their stay in Cape (e.g. littered areas)
 generate waste_issues = 0
 replace waste_issues =. if issues == "Prefer not to say / don't know"
 replace waste_issues = 1 if issues == "Yes (please specify):"
-
 
 *----------------------------------------------------------------------------- 
 *dummy for importance of SWM - on a scale from 0 (not at all) to 4 (extremely important)
@@ -87,13 +82,11 @@ replace swm_important = 2 if swm_travel == "Moderately important"
 replace swm_important = 3 if swm_travel == "Very important" 
 replace swm_important = 4 if swm_travel == "Extremely important"
 
-
 *----------------------------------------------------------------------------- 
 *dummy for waste management support
 generate support = 0
 replace support =. if contribution == "Prefer not to say / don't know"
 replace support = 1 if contribution == "Yes"
-
 
 *----------------------------------------------------------------------------- 
 *dummy for paymentmode
@@ -113,7 +106,6 @@ generate mode_donation = 0
 replace mode_donation =. if payment == "" | payment == "Other (please specify):"
 replace mode_donation = 1 if payment == "Donation"
 
-
 *----------------------------------------------------------------------------- 
 *dummy for the different payment mode amounts
 *no dummies needed
@@ -123,7 +115,6 @@ replace mode_donation = 1 if payment == "Donation"
 generate impact_educprgrms = 0
 replace impact_educprgrms =. if educ_prgrms == "Prefer not to say / don't know"
 replace impact_educprgrms = 1 if educ_prgrms == "Yes"
-
 
 *----------------------------------------------------------------------------- 
 *dummy for eco-friendly impact
@@ -135,7 +126,6 @@ replace impact_eco = 1 if ecosupport == "Yes"
 *dummy for initiatives
 *no dummy as it's open-ended
 
-
 **********************************************************************************************************************************************
 *DEMOGRAPHICS
 *-----------------------------------------------------------------------------
@@ -143,7 +133,6 @@ replace impact_eco = 1 if ecosupport == "Yes"
 generate male = 0
 replace male = . if gender == "Prefer not to say" 
 replace male = 1 if gender == "Male"
-
 
 *-----------------------------------------------------------------------------
 *dummy for Nationalities
@@ -174,7 +163,6 @@ generate malawi = 0
 label variable malawi "Nationality = Malawi"
 replace malawi =. if nationality == ""
 replace malawi = 1 if nationality == "Malawi"
-
 
 generate america = 0
 label variable america "Nationality = America"
@@ -276,7 +264,6 @@ regress wtp swm_dissatisfied support awareness
 regress wtp waste_mgmt waste_coll waste_sep waste_rec waste_comp waste_dis waste_issues
 *probably only take waste_mgmt waste_coll waste_sep waste_rec 
 
-
 regress wtp europe africa malawi america asia australia
 regress wtp origin_europe origin_malawi
 *probably only regress origin_malawi
@@ -293,7 +280,6 @@ regress wtp impact_educprgrms impact_eco cottage
 *take cottage out 
 
 regress wtp waste_mgmt waste_issues waste_rec
-
 
 **********************************************************************************************************************************************
 *FINAL REGRESSIONS
@@ -327,22 +313,15 @@ regress wtp waste_issues satisfaction impact_educprgrms
 regress wtp waste_issues swm_important awareness satisfaction impact_educprgrms impact_eco waste_mgmt waste_coll waste_sep waste_rec
 *nothing significant
 
-
 *all together 
 regress wtp male age days_cape days_malawi daily_spendings malawi acc_med awareness swm_dissatisfied waste_issues swm_important impact_educprgrms impact_eco waste_mgmt waste_coll waste_sep waste_rec
 *nothing significant, malawi & waste_issues ommitted 
 
-
 regress wtp male age days_cape days_malawi daily_spendings malawi acc_med waste_issues swm_important awareness satisfaction impact_educprgrms impact_eco waste_mgmt waste_coll waste_sep waste_rec
 *nothing significant, waste_sep ommitted
 
-
 regress wtp male age days_cape days_malawi daily_spendings malawi acc_med waste_issues impact_educprgrms swm_dissatisfied 	
 *waste_issues ommitted
-
-
-
-
 
 *Base
 regress wtp
@@ -356,7 +335,6 @@ regress wtp waste_issues impact_educprgrms swm_dissatisfied 		//best one
 *all together 
 regress wtp male age days_cape days_malawi daily_spendings malawi acc_med waste_issues impact_educprgrms swm_dissatisfied
 *waste_issues ommitted, only malawi significant
-
 
 **********************************************************************************************************************************************
 *FINAL REGRESSIONS 2.0
@@ -376,7 +354,6 @@ regress wtp swm_dissatisfied
 regress wtp swm_important 
 *significant 
 
-
 regress wtp impact_educprgrms impact_eco
 regress wtp mode_stayfee mode_donation 
 
@@ -395,4 +372,3 @@ regress wtp mode_donation
 *significant 
 
 regress wtp mode_stayfee 
-

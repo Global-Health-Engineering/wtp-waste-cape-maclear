@@ -5,13 +5,11 @@
 **********************************************************************************************************************************************
 
 clear
-use "../data/derived_data/Households_DerivedData.dta", clear
+use "../data/derived_data/derived_data_households.dta", clear
 
 *generate actual years in cape and house ("All my life")
 replace yrs_cape = age if d7 == "All my life"
 replace yrs_house = age if d8 == "All my life"
-
-
 
 **********************************************************************************************************************************************
 
@@ -38,20 +36,17 @@ replace satisfaction = 3 if swm_satisfaction == "Neither satisfied nor dissatisf
 replace satisfaction = 4 if swm_satisfaction == "Somewhat satisfied" 
 replace satisfaction = 5 if swm_satisfaction == "Extremely satisfied"
 
-
 *-----------------------------------------------------------------------------
 *dummy variables for beans game / environmental concern
 
 *nat_env -> no dummy needed
 *env_swm -> no dummy needed
 
-
 *-----------------------------------------------------------------------------
 *dummy variables for negative impact on environment of improper SWM
 generate neg_impact = 0
 replace neg_impact =. if impact_swm == "Prefer not to say"
 replace neg_impact = 1 if impact_swm == "Yes"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for engagement in the SWM system - base is no engagement
@@ -66,7 +61,6 @@ replace time = 1 if engagement == "I would be willing to contribute my time"
 generate no_engagement = 0
 replace no_engagement =. if engagement == "Prefer not to say"
 replace no_engagement = 1 if engagement == "I do not want do engage in solid waste management"
-
 
 **********************************************************************************************************************************************
 *OTHER
@@ -86,7 +80,6 @@ generate daily = 0
 replace daily =. if frequency == "Prefer not to say" | frequency == "Other (please specify): "
 replace daily = 1 if frequency == "Every day"
 
-
 **********************************************************************************************************************************************
 *DEMOGRAPHICS
 *-----------------------------------------------------------------------------
@@ -101,7 +94,6 @@ replace male = 1 if gender == "Male"
 generate christian = 0
 replace christian =. if religion== "Prefer not to say"
 replace christian = 1 if religion== "Christianity"
-
 
 *-----------------------------------------------------------------------------
 *dummy variable for age
@@ -126,7 +118,6 @@ generate owner = 0
 replace owner =. if ownership == "Prefer not to say" | ownership == "Other (please specify):"
 replace owner = 1 if ownership == "Owner"
 
-
 **********************************************************************************************************************************************
 *HH Role 
 *-----------------------------------------------------------------------------
@@ -140,7 +131,6 @@ replace lead_head = 1 if lead_swm == "Female head of HH" | lead_swm == "Male hea
 generate hh_head = 0
 replace hh_head =. if hh_position == "Prefer not to say"
 replace hh_head = 1 if hh_position == "Female head of HH" | hh_position == "Male head of HH"
-
 
 **********************************************************************************************************************************************
 *RICH - POOR
@@ -170,13 +160,11 @@ generate chembe = 0
 replace chembe =. if village == "Prefer not to say"
 replace chembe = 1 if village == "Chembe"
 
-
 *-----------------------------------------------------------------------------
 *dummy variables for employment - base scenario = employed
 generate unemployed = 0
 replace unemployed =. if employ == "Prefer not to say"
 replace unemployed = 1 if employ == "Unemployed"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for education - base is basic education (=Primary education")
@@ -191,7 +179,6 @@ replace no_educ = 1 if educ == "No education"
 generate higher_educ = 0
 replace higher_educ =. if educ == "Prefer not to say"
 replace higher_educ = 1 if educ == "Secondary education " | educ == "Tertiary education"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for income brackets - base scenarion income between 0-50k
@@ -227,8 +214,6 @@ generate inc_300k_ = 0
 replace inc_300k_ =. if income == "Prefer not to say" 
 replace inc_300k_ = 1 if income == "More than 300,000"
 
-
-
 **********************************************************************************************************************************************
 
 * Willingness To Pay (WTP)
@@ -239,7 +224,6 @@ replace inc_300k_ = 1 if income == "More than 300,000"
 
 *Base Scenario: without waste separation
 doubleb ns_bid1 ns_bid2 response_ns_bid1 response_ns_bid2
-
 
 *Base Scenario: with waste separation (HH have to separate their waste)
 doubleb s_bid1 s_bid2 response_s_bid1 response_s_bid2
@@ -289,8 +273,6 @@ doubleb s_bid1 s_bid2 response_s_bid1 response_s_bid2 muonda nkhono katukumala k
 
 *all together
 doubleb s_bid1 s_bid2 response_s_bid1 response_s_bid2 fee time weekly biweekly neg_impact env_swm nat_env swm_dissatisfied male christian age yrs_cape yrs_house owner all_life lead_head hh_head muonda nkhono katukumala kafukuta chembe unemployed basic_educ higher_educ inc_50_100k inc_100_150k inc_150_200k inc_200_250k inc_250_300k inc_300k_
-
-
 
 **********************************************************************************************************************************************
 *TABLE
@@ -345,7 +327,6 @@ doubleb ns_bid1 ns_bid2 response_ns_bid1 response_ns_bid2 male age unemployed le
 doubleb s_bid1 s_bid2 response_s_bid1 response_s_bid2 male age unemployed lead_head hh_head basic_educ higher_educ inc_50_100k inc_100_150k inc_150_200k inc_200_250k inc_250_300k inc_300k_ muonda nkhono katukumala kafukuta chembe fee time env_swm nat_env satisfaction
 
 *-----------------------------------------------------------------------------
-
 
 *NS: SWM 
 doubleb ns_bid1 ns_bid2 response_ns_bid1 response_ns_bid2 fee time env_swm nat_env satisfaction
@@ -405,9 +386,6 @@ tab wtp34 if time == 1
 tab wtp35 if time == 1
 tab wtp36 if time == 1
 
-
-
-
 tab wtp1 if no_engagement == 1
 tab wtp2 if no_engagement == 1
 tab wtp3 if no_engagement == 1
@@ -444,5 +422,3 @@ tab wtp33 if no_engagement == 1
 tab wtp34 if no_engagement == 1
 tab wtp35 if no_engagement == 1
 tab wtp36 if no_engagement == 1
-
-

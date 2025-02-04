@@ -5,8 +5,7 @@
 ************************************************************************************************************************************************
 
 clear
-use "../data/raw_data/Businesses_RawData.dta", clear
-
+use "../data/raw_data/raw_data_businesses.dta", clear
 
 *-----------------------------------------------------------------------------
 *SWM questions
@@ -29,7 +28,6 @@ rename q10_5_text swm_lead_o
 rename q11_1 swm_satisfaction
 rename q12 pay
 rename q121_1_text cost
-
 
 *-----------------------------------------------------------------------------
 *Environmental concern & WTP
@@ -63,7 +61,6 @@ rename e3 frequency
 rename e3_4_text frequency_o
 rename e4 trainings
 
-
 *-----------------------------------------------------------------------------
 *demographics
 
@@ -90,9 +87,6 @@ rename d4_1_text buildings
 rename d5_1_text workers
 rename d6_1_text income
 
-
-
-
 ************************************************************************************************************************************************
 
 *Data manipulation & Variable Calculation
@@ -107,7 +101,6 @@ rename d6_1_text income
 generate swm_fee =.
 replace swm_fee = 52*weeklyfee/12 if payment == "Fixed fee per week "
 replace swm_fee = monthlyfee if payment == "Fixed fee per month"
-
 
 **********************************************************************************************************************************************
 
@@ -145,7 +138,6 @@ generate otherwaste = 0
 replace otherwaste =. if waste == "Don't know"
 replace otherwaste = 1 if waste == "Other (please specify):"
 
-
 *-----------------------------------------------------------------------------
 *dummy for who is responsible / takes the lead role for SWM 
 generate lead_self = 0
@@ -163,8 +155,6 @@ label variable swm_dissatisfied "Extremely dissatisfied & Somewhat dissatisfied 
 replace swm_dissatisfied = 0 if swm_satisfaction == "Extremely satisfied" | swm_satisfaction == "Somewhat satisfied" 
 replace swm_dissatisfied = 1 if swm_satisfaction == "Extremely dissatisfied" | swm_satisfaction == "Somewhat dissatisfied"
 
-
-
 generate satisfaction = 0
 replace satisfaction =. if swm_satisfaction == ""
 replace satisfaction = 1 if swm_satisfaction == "Extremely dissatisfied"
@@ -173,19 +163,16 @@ replace satisfaction = 3 if swm_satisfaction == "Neither satisfied nor dissatisf
 replace satisfaction = 4 if swm_satisfaction == "Somewhat satisfied" 
 replace satisfaction = 5 if swm_satisfaction == "Extremely satisfied"
 
-
 *-----------------------------------------------------------------------------
 *dummy if the business are currently paying for SWM 
 generate currently_paying = 0
 replace currently_paying = 1 if pay == "Yes"
-
 
 *-----------------------------------------------------------------------------
 *dummy if the business uses recyclables as input materials 
 generate use_recyclables = 0
 replace use_recyclables = . if recyclables == "Prefer not to say / don't know"
 replace use_recyclables = 1 if recyclables == "Yes (please indicate which recycled materials they use):"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for engagement in the SWM system - base is no engagement
@@ -204,7 +191,6 @@ replace time_employee = 1 if engagement == "I would be willing to contribute the
 generate no_engagement = 0
 replace no_engagement =. if engagement == "Prefer not to say / don't know"
 replace no_engagement = 1 if engagement == "I do not want do engage in solid waste management"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for collection frequency
@@ -227,7 +213,6 @@ replace daily = 1 if frequency == "Every day"
 generate swm_training = 0
 replace swm_training =. if trainings == "Prefer not to say / don't know"
 replace swm_training = 1 if trainings == "Yes"
-
 
 *-----------------------------------------------------------------------------
 *dummy variables for village 
@@ -265,7 +250,6 @@ replace owner = 1 if position == "Owner"
 *no dummy needed for buildings
 *no dummy needed for workers 
 *no dummy needed for income
-
 
 **********************************************************************************************************************************************
 *Data manipulation for business type 
@@ -368,14 +352,7 @@ tab frequency
 tab engagement
 sum weeklyfee monthlyfee 
 
-
 **********************************************************************************************************************************************
 
-
-save "../data/derived_data/Businesses_DerivedData.dta", replace
-export delimited "../data/derived_data/Businesses_DerivedData.csv", replace
-
-
-
-
-
+save "../data/derived_data/derived_data_businesses.dta", replace
+export delimited "../data/derived_data/derived_data_businesses.csv", replace

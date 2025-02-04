@@ -5,7 +5,7 @@
 ************************************************************************************************************************************************************************
 
 clear 
-use "../data/raw_data/Lodges_RawData.dta", clear
+use "../data/raw_data/raw_data_lodges.dta", clear
 
 *-----------------------------------------------------------------------------
 *label variables present SWM practices
@@ -66,7 +66,6 @@ rename wtp5 public_waste
 rename wtp6_1_text public_waste_fee
 rename wtp7 educ_prgrms
 rename wtp8 benefits_swm
-
 
 *-----------------------------------------------------------------------------
 * demographics
@@ -160,12 +159,12 @@ rename d13_11_text slow_nov
 rename d13_12_text slow_dec
 rename d14 lodge_id
 
-
 ************************************************************************************************************************************************************************
 
 * Data manipulation & Variable Calculation
 
 ************************************************************************************************************************************************************************
+
 *rename gender as it is coded, 1 male, 2 female
 generate gender = ""
 replace gender = "Male" if gender_byte == 1
@@ -197,7 +196,6 @@ generate swm_dissatisfied =.
 label variable swm_dissatisfied "Extremely dissatisfied & Somewhat dissatisfied with current waste mgmt options"
 replace swm_dissatisfied = 0 if swm_satisfaction == "Extremely satisfied" | swm_satisfaction == "Somewhat satisfied" 
 replace swm_dissatisfied = 1 if swm_satisfaction == "Extremely dissatisfied" | swm_satisfaction == "Somewhat dissatisfied"
-
 
 generate satisfaction = 0
 replace satisfaction =. if swm_satisfaction == ""
@@ -251,7 +249,6 @@ replace fee_permonth =. if monthlyfee == 0
 replace fee_permonth =. if weeklyfee == 0
 replace fee_permonth =. if engagement == "I would be willing to contribute the time of another empleyee"
 
-
 *-----------------------------------------------------------------------------
 *generate the busiest and slowest month's turnover
 generate revenue_busy =.
@@ -282,38 +279,7 @@ replace revenue_slow = slow_oct if slow_oct !=.
 replace revenue_slow = slow_nov if slow_nov !=.
 replace revenue_slow = slow_dec if slow_dec !=.
 
-
-
-
 ************************************************************************************************************************************************************************
 
-
-save "../data/derived_data/Lodges_DerivedData.dta", replace
-export delimited "../data/derived_data/Lodges_DerivedData.csv", replace
-
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+save "../data/derived_data/derived_data_lodges.dta", replace
+export delimited "../data/derived_data/derived_data_lodges.csv", replace
